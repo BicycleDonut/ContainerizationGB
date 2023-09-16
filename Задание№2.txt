@@ -1,0 +1,69 @@
+sr@sr-VirtualBox:~$ sudo apt install lxc lxc-templates uidmap
+[sudo] пароль для sr:
+Чтение списков пакетов… Готово
+Построение дерева зависимостей… Готово
+Чтение информации о состоянии… Готово
+Уже установлен пакет lxc самой новой версии (1:5.0.0~git2209-g5a7b9ce67-0ubuntu1).
+Уже установлен пакет lxc-templates самой новой версии (3.0.4-5).
+Уже установлен пакет uidmap самой новой версии (1:4.8.1-2ubuntu2.1).
+uidmap помечен как установленный вручную.
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 0 пакетов, и 348 пакетов не обновлено.
+sr@sr-VirtualBox:~$ lxc version
+To start your first container, try: lxc launch ubuntu:22.04
+Or for a virtual machine: lxc launch ubuntu:22.04 --vm
+
+Client version: 5.17
+Server version: 5.17
+sr@sr-VirtualBox:~$ lxd init
+Would you like to use LXD clustering? (yes/no) [default=no]: y
+What IP address or DNS name should be used to reach this server? [default=10.0.2.15]:
+Are you joining an existing cluster? (yes/no) [default=no]: y
+Error: Joining an existing cluster requires root privileges
+sr@sr-VirtualBox:~$ lxc version
+Client version: 5.17
+Server version: 5.17
+sr@sr-VirtualBox:~$ sudo -s
+root@sr-VirtualBox:/home/sr# lxc-create -n test12345 -t ubuntu
+Checking cache download in /var/cache/lxc/jammy/rootfs-amd64 ...
+Copy /var/cache/lxc/jammy/rootfs-amd64 to /var/lib/lxc/test12345/rootfs ...
+Copying rootfs to /var/lib/lxc/test12345/rootfs ...
+
+Generating locales (this might take a while)...
+  ru_RU.UTF-8... done
+Generation complete.
+Creating SSH2 RSA key; this may take some time ...
+3072 SHA256:aC7WMFn4UDoaLk9pxV6w3XyGJDO2Ol9VJgolh1ZBojc root@sr-VirtualBox (RSA)
+Creating SSH2 ECDSA key; this may take some time ...
+256 SHA256:CVUvQbfjD4R1FOHnySud4HqRMYBxbebhYMbMPndynww root@sr-VirtualBox (ECDSA)
+Creating SSH2 ED25519 key; this may take some time ...
+256 SHA256:lEyaU4W5vutW0s6OhQCzVYzyHh+D6ZN7yJhbvpIQ884 root@sr-VirtualBox (ED25519)
+invoke-rc.d: could not determine current runlevel
+invoke-rc.d: policy-rc.d denied execution of start.
+
+Current default time zone: 'Etc/UTC'
+Local time is now:      Sat Sep 16 18:58:49 UTC 2023.
+Universal Time is now:  Sat Sep 16 18:58:49 UTC 2023.
+
+
+##
+# The default user is 'ubuntu' with password 'ubuntu'!
+# Use the 'sudo' command to run tasks as root in the container.
+##
+
+root@sr-VirtualBox:/home/sr#
+root@sr-VirtualBox:/home/sr# lxc-start -n test12345
+root@sr-VirtualBox:/home/sr# lxc-attach -n test12345
+root@test12345:/# free -m
+               total        used        free      shared  buff/cache   available
+Память:       1962          27        1903           0          31        1935
+Подкачка:          0           0           0
+root@test12345:/# exit
+root@sr-VirtualBox:/home/sr# lxc-stop -n test12345
+root@sr-VirtualBox:/home/sr# nano /var/lib/lxc/test12345/config
+root@sr-VirtualBox:/home/sr# lxc-start -n test12345
+root@sr-VirtualBox:/home/sr# lxc-attach -n test12345
+root@test12345:/# free -m
+               total        used        free      shared  buff/cache   available
+Память:        256          28         227           0           0         227
+Подкачка:          0           0           0
+root@test12345:/#
