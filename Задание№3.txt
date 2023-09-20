@@ -1,1 +1,275 @@
-
+sr@sr-VirtualBox:~$ sudo apt update
+[sudo] пароль для sr:
+Сущ:1 http://ru.archive.ubuntu.com/ubuntu jammy InRelease
+Сущ:2 http://ru.archive.ubuntu.com/ubuntu jammy-updates InRelease
+Сущ:3 http://ru.archive.ubuntu.com/ubuntu jammy-backports InRelease
+Сущ:4 https://download.docker.com/linux/ubuntu jammy InRelease
+Сущ:5 http://security.ubuntu.com/ubuntu jammy-security InRelease
+Чтение списков пакетов… Готово
+Построение дерева зависимостей… Готово
+Чтение информации о состоянии… Готово
+Уже установлен пакет ca-certificates самой новой версии (20230311ubuntu0.22.04.1).
+Уже установлен пакет curl самой новой версии (7.81.0-1ubuntu1.13).
+Следующие НОВЫЕ пакеты будут установлены:
+  apt-transport-https
+Следующие пакеты будут обновлены:
+  python3-software-properties software-properties-common software-properties-gtk
+Обновлено 3 пакетов, установлено 1 новых пакетов, для удаления отмечено 0 пакетов, и 346 пакетов не обновлено.
+Необходимо скачать 116 kB архивов.
+После данной операции объём занятого дискового пространства возрастёт на 171 kB.
+Пол:1 http://ru.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 apt-transport-https all 2.4.10 [1 510 B]
+Пол:2 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 software-properties-common all 0.99.22.7 [14,1 kB]
+Пол:3 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 software-properties-gtk all 0.99.22.7 [71,3 kB]
+Пол:4 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 python3-software-properties all 0.99.22.7 [28,8 kB]
+Получено 116 kB за 0с (507 kB/s)
+Выбор ранее не выбранного пакета apt-transport-https.
+(Чтение базы данных … на данный момент установлено 189857 файлов и каталогов.)
+Подготовка к распаковке …/apt-transport-https_2.4.10_all.deb …
+Распаковывается apt-transport-https (2.4.10) …
+Подготовка к распаковке …/software-properties-common_0.99.22.7_all.deb …
+Распаковывается software-properties-common (0.99.22.7) на замену (0.99.22.5) …
+Подготовка к распаковке …/software-properties-gtk_0.99.22.7_all.deb …
+Распаковывается software-properties-gtk (0.99.22.7) на замену (0.99.22.5) …
+Подготовка к распаковке …/python3-software-properties_0.99.22.7_all.deb …
+Распаковывается python3-software-properties (0.99.22.7) на замену (0.99.22.5) …
+Настраивается пакет apt-transport-https (2.4.10) …
+Настраивается пакет python3-software-properties (0.99.22.7) …
+Настраивается пакет software-properties-common (0.99.22.7) …
+Настраивается пакет software-properties-gtk (0.99.22.7) …
+Обрабатываются триггеры для dbus (1.12.20-2ubuntu4.1) …
+Обрабатываются триггеры для shared-mime-info (2.1-2) …
+Обрабатываются триггеры для mailcap (3.70+nmu1ubuntu1) …
+Обрабатываются триггеры для desktop-file-utils (0.26-1ubuntu3) …
+Обрабатываются триггеры для hicolor-icon-theme (0.17-2) …
+Обрабатываются триггеры для gnome-menus (3.36.0-1ubuntu3) …
+Обрабатываются триггеры для libglib2.0-0:amd64 (2.72.4-0ubuntu1) …
+Обрабатываются триггеры для man-db (2.10.2-1) …
+root@sr-VirtualBox:/home/sr# curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+root@sr-VirtualBox:/home/sr# echo "deb [signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+root@sr-VirtualBox:/home/sr# sudo apt update
+Сущ:1 http://ru.archive.ubuntu.com/ubuntu jammy InRelease
+Пол:2 http://ru.archive.ubuntu.com/ubuntu jammy-updates InRelease [119 kB]
+Сущ:3 https://download.docker.com/linux/ubuntu jammy InRelease
+Пол:4 http://security.ubuntu.com/ubuntu jammy-security InRelease [110 kB]
+Пол:5 http://ru.archive.ubuntu.com/ubuntu jammy-backports InRelease [109 kB]
+Пол:6 http://ru.archive.ubuntu.com/ubuntu jammy-updates/main amd64 DEP-11 Metadata [101 kB]
+Пол:7 http://ru.archive.ubuntu.com/ubuntu jammy-updates/universe amd64 DEP-11 Metadata [288 kB]
+Пол:8 http://ru.archive.ubuntu.com/ubuntu jammy-updates/multiverse amd64 DEP-11 Metadata [940 B]
+Пол:9 http://ru.archive.ubuntu.com/ubuntu jammy-backports/main amd64 DEP-11 Metadata [4 912 B]
+Пол:10 http://ru.archive.ubuntu.com/ubuntu jammy-backports/universe amd64 DEP-11 Metadata [17,9 kB]
+Получено 751 kB за 1с (878 kB/s)
+Чтение списков пакетов… Готово
+Построение дерева зависимостей… Готово
+Чтение информации о состоянии… Готово
+Может быть обновлено 346 пакетов. Запустите «apt list --upgradable» для их показа.
+N: Пропускается получение настроенного файла «stable/binary-i386/Packages», так как репозиторий «https://download.docker.com/linux/ubuntu jammy InRelease» не поддерживает архитектуру «i386»
+root@sr-VirtualBox:/home/sr# sudo apt install docker-ce
+Чтение списков пакетов… Готово
+Построение дерева зависимостей… Готово
+Чтение информации о состоянии… Готово
+Уже установлен пакет docker-ce самой новой версии (5:24.0.6-1~ubuntu.22.04~jammy).
+Обновлено 0 пакетов, установлено 0 новых пакетов, для удаления отмечено 0 пакетов, и 346 пакетов не обновлено.
+root@sr-VirtualBox:/home/sr# sudo usermod -aG docker $USER
+root@sr-VirtualBox:/home/sr# exit
+exit
+sr@sr-VirtualBox:~$ newgrp docker
+Пароль:
+Неправильный пароль.
+sr@sr-VirtualBox:~$ docker --version
+Docker version 24.0.6, build ed223bc
+sr@sr-VirtualBox:~$ docker run docker/whalesay cowsay Hello, Docker!
+docker: permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post "http://%2Fvar%2Frun%2Fdocker.sock/v1.24/containers/create": dial unix /var/run/docker.sock: connect: permission denied.
+See 'docker run --help'.
+sr@sr-VirtualBox:~$ sudo -s
+root@sr-VirtualBox:/home/sr# sudo usermod -aG docker $USER
+root@sr-VirtualBox:/home/sr# docker run docker/whalesay cowsay Hello, Docker!
+Unable to find image 'docker/whalesay:latest' locally
+latest: Pulling from docker/whalesay
+[DEPRECATION NOTICE] Docker Image Format v1, and Docker Image manifest version 2, schema 1 support will be removed in an upcoming release. Suggest the author of docker.io/docker/whalesay:latest to upgrade the image to the OCI Format, or Docker Image manifest v2, schema 2. More information at https://docs.docker.com/go/deprecated-image-specs/
+e190868d63f8: Pull complete
+909cd34c6fd7: Pull complete
+0b9bfabab7c1: Pull complete
+a3ed95caeb02: Pull complete
+00bf65475aba: Pull complete
+c57b6bcc83e3: Pull complete
+8978f6879e2f: Pull complete
+8eed3712d2cf: Pull complete
+Digest: sha256:178598e51a26abbc958b8a2e48825c90bc22e641de3d31e18aaf55f3258ba93b
+Status: Downloaded newer image for docker/whalesay:latest
+ ________________
+< Hello, Docker! >
+ ----------------
+    \
+     \
+      \
+                    ##        .
+              ## ## ##       ==
+           ## ## ## ##      ===
+       /""""""""""""""""___/ ===
+  ~~~ {~~ ~~~~ ~~~ ~~~~ ~~ ~ /  ===- ~~~
+       \______ o          __/
+        \    \        __/
+          \____\______/
+root@sr-VirtualBox:/home/sr# docker run docker/whalesay cowsay -f elephant "Hello, Docker!"
+ ________________
+< Hello, Docker! >
+ ----------------
+ \     /\  ___  /\
+  \   // \/   \/ \\
+     ((    O O    ))
+      \\ /     \ //
+       \/  | |  \/
+        |  | |  |
+        |  | |  |
+        |   o   |
+        | |   | |
+        |m|   |m|
+root@sr-VirtualBox:/home/sr# docker run docker/whalesay cowsay -f elephant "Hello, Docker!"
+ ________________
+< Hello, Docker! >
+ ----------------
+ \     /\  ___  /\
+  \   // \/   \/ \\
+     ((    O O    ))
+      \\ /     \ //
+       \/  | |  \/
+        |  | |  |
+        |  | |  |
+        |   o   |
+        | |   | |
+        |m|   |m|
+root@sr-VirtualBox:/home/sr# docker run docker/whalesay cowsay -f dragon "Hello, Docker!"
+ ________________
+< Hello, Docker! >
+ ----------------
+      \                    / \  //\
+       \    |\___/|      /   \//  \\
+            /0  0  \__  /    //  | \ \
+           /     /  \/_/    //   |  \  \
+           @_^_@'/   \/_   //    |   \   \
+           //_^_/     \/_ //     |    \    \
+        ( //) |        \///      |     \     \
+      ( / /) _|_ /   )  //       |      \     _\
+    ( // /) '/,_ _ _/  ( ; -.    |    _ _\.-~        .-~~~^-.
+  (( / / )) ,-{        _      `-.|.-~-.           .~         `.
+ (( // / ))  '/\      /                 ~-. _ .-~      .-~^-.  \
+ (( /// ))      `.   {            }                   /      \  \
+  (( / ))     .----~-.\        \-'                 .~         \  `. \^-.
+             ///.----..>        \             _ -~             `.  ^-`  ^-_
+               ///-._ _ _ _ _ _ _}^ - - - - ~                     ~-- ,.-~
+                                                                  /.-~
+root@sr-VirtualBox:/home/sr# docker run docker/whalesay cowsay -f kangaroo "Hello, Docker!"
+cowsay: Could not find kangaroo cowfile!
+root@sr-VirtualBox:/home/sr# docker run docker/whalesay cowsay -f duck "Hello, Docker!"
+cowsay: Could not find duck cowfile!
+root@sr-VirtualBox:/home/sr# docker run docker/whalesay cowsay -f panda "Hello, Docker!"
+cowsay: Could not find panda cowfile!
+root@sr-VirtualBox:/home/sr# docker run docker/whalesay cowsay -f owl "Hello, Docker!"
+cowsay: Could not find owl cowfile!
+root@sr-VirtualBox:/home/sr# docker run docker/whalesay cowsay -f kitty "Hello, Docker!"
+ ________________
+< Hello, Docker! >
+ ----------------
+     \
+      \
+       ("`-'  '-/") .___..--' ' "`-._
+         ` *_ *  )    `-.   (      ) .`-.__. `)
+         (_Y_.) ' ._   )   `._` ;  `` -. .-'
+      _.. `--'_..-_/   /--' _ .' ,4
+   ( i l ),-''  ( l i),'  ( ( ! .-'
+root@sr-VirtualBox:/home/sr# docker run -it -h GB --name gb-test ubuntu:22.10
+Unable to find image 'ubuntu:22.10' locally
+22.10: Pulling from library/ubuntu
+3ad6ea492c35: Pull complete
+Digest: sha256:e322f4808315c387868a9135beeb11435b5b83130a8599fd7d0014452c34f489
+Status: Downloaded newer image for ubuntu:22.10
+root@GB:/# ls -l /
+total 48
+lrwxrwxrwx   1 root root    7 Jun 24 02:02 bin -> usr/bin
+drwxr-xr-x   2 root root 4096 Oct 17  2022 boot
+drwxr-xr-x   5 root root  360 Sep 19 20:42 dev
+drwxr-xr-x   1 root root 4096 Sep 19 20:42 etc
+drwxr-xr-x   2 root root 4096 Oct 17  2022 home
+lrwxrwxrwx   1 root root    7 Jun 24 02:02 lib -> usr/lib
+lrwxrwxrwx   1 root root    9 Jun 24 02:02 lib32 -> usr/lib32
+lrwxrwxrwx   1 root root    9 Jun 24 02:02 lib64 -> usr/lib64
+lrwxrwxrwx   1 root root   10 Jun 24 02:02 libx32 -> usr/libx32
+drwxr-xr-x   2 root root 4096 Jun 24 02:02 media
+drwxr-xr-x   2 root root 4096 Jun 24 02:02 mnt
+drwxr-xr-x   2 root root 4096 Jun 24 02:02 opt
+dr-xr-xr-x 399 root root    0 Sep 19 20:42 proc
+drwx------   2 root root 4096 Jun 24 02:05 root
+drwxr-xr-x   5 root root 4096 Jun 24 02:05 run
+lrwxrwxrwx   1 root root    8 Jun 24 02:02 sbin -> usr/sbin
+drwxr-xr-x   2 root root 4096 Jun 24 02:02 srv
+dr-xr-xr-x  13 root root    0 Sep 19 20:42 sys
+drwxrwxrwt   2 root root 4096 Jun 24 02:05 tmp
+drwxr-xr-x  14 root root 4096 Jun 24 02:02 usr
+drwxr-xr-x  11 root root 4096 Jun 24 02:05 var
+root@GB:/# mkdir /example
+root@GB:/# touch /example/passwords.txt
+root@GB:/# echo "123test" >> /example/passwords.txt
+root@GB:/# docker stop gb-test
+bash: docker: command not found
+root@GB:/# sudo docker stop gb-test
+bash: sudo: command not found
+root@GB:/# docker start gb-test
+bash: docker: command not found
+root@GB:/# exit
+exit
+root@sr-VirtualBox:/home/sr#  docker stop gb-test
+gb-test
+root@sr-VirtualBox:/home/sr# docker start gb-test
+gb-test
+root@sr-VirtualBox:/home/sr# docker exec -it gb-test bash
+root@GB:/# cat /example/passwords.txt
+123test
+root@GB:/# docker stop gb-test
+bash: docker: command not found
+root@GB:/# exit
+exit
+root@sr-VirtualBox:/home/sr# docker stop gb-test
+gb-test
+root@sr-VirtualBox:/home/sr# docker rm gb-test
+gb-test
+root@sr-VirtualBox:/home/sr# docker run -it -h GB --name gb-test ubuntu:22.10
+root@GB:/# exit
+exit
+root@sr-VirtualBox:/home/sr# mkdir /test/folder
+mkdir: невозможно создать каталог «/test/folder»: Нет такого файла или каталога
+root@sr-VirtualBox:/home/sr# docker run -it -h GB --name gb-test ubuntu:22.10
+docker: Error response from daemon: Conflict. The container name "/gb-test" is already in use by container "ddbf60fa26dc64f90ef6a8d2588033992dc241c49fb24b535c22ec7e71e337e1". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+root@sr-VirtualBox:/home/sr#
+root@sr-VirtualBox:/home/sr# mkdir /test/folder
+mkdir: невозможно создать каталог «/test/folder»: Нет такого файла или каталога
+root@sr-VirtualBox:/home/sr# echo "$HOSTNAME" >> /otherway/test.txt
+bash: /otherway/test.txt: Нет такого файла или каталога
+root@sr-VirtualBox:/home/sr# cat /test/folder/test.txt
+cat: /test/folder/test.txt: Нет такого файла или каталога
+root@sr-VirtualBox:/home/sr# ls
+ 1            AS_Pushkin1    Dockerfile    example.yaml   root     snap   test3        test_sgid   Видео       Загрузки      Музыка         'Рабочий стол'
+ AS_Pushkin   delfiletodir   Dockerfile1   file3          shared   sr     testfolder   testuser2   Документы   Изображения   Общедоступные   Шаблоны
+root@sr-VirtualBox:/home/sr# mkdir /test3/folder
+mkdir: невозможно создать каталог «/test3/folder»: Нет такого файла или каталога
+root@sr-VirtualBox:/home/sr# mkdir folder
+root@sr-VirtualBox:/home/sr# ls
+ 1             delfiletodir   example.yaml   root     sr           test_sgid   Документы     Музыка          Шаблоны
+ AS_Pushkin    Dockerfile     file3          shared   test3        testuser2   Загрузки      Общедоступные
+ AS_Pushkin1   Dockerfile1    folder         snap     testfolder   Видео       Изображения  'Рабочий стол'
+root@sr-VirtualBox:/home/sr# mkdir /folder/folder_test
+mkdir: невозможно создать каталог «/folder/folder_test»: Нет такого файла или каталога
+root@sr-VirtualBox:/home/sr# mkdir folder/folder_test
+root@sr-VirtualBox:/home/sr# ls
+ 1             delfiletodir   example.yaml   root     sr           test_sgid   Документы     Музыка          Шаблоны
+ AS_Pushkin    Dockerfile     file3          shared   test3        testuser2   Загрузки      Общедоступные
+ AS_Pushkin1   Dockerfile1    folder         snap     testfolder   Видео       Изображения  'Рабочий стол'
+root@sr-VirtualBox:/home/sr# cat folder_test
+cat: folder_test: Нет такого файла или каталога
+root@sr-VirtualBox:/home/sr# docker run -it -h GB --name gb-test -v folder/folder_test:/otherway ubuntu:22.10
+docker: Error response from daemon: Conflict. The container name "/gb-test" is already in use by container "ddbf60fa26dc64f90ef6a8d2588033992dc241c49fb24b535c22ec7e71e337e1". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+root@sr-VirtualBox:/home/sr# docker run -it -h GB --name gb-test -v /folder/folder_test:/otherway ubuntu:22.10
+docker: Error response from daemon: Conflict. The container name "/gb-test" is already in use by container "ddbf60fa26dc64f90ef6a8d2588033992dc241c49fb24b535c22ec7e71e337e1". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+root@sr-VirtualBox:/home/sr#
