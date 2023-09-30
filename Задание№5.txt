@@ -1,0 +1,95 @@
+root@sr-VirtualBox:/home/sr# mkdir ./compose
+root@sr-VirtualBox:/home/sr# cd ./compose
+root@sr-VirtualBox:/home/sr/compose# nano compose.yaml
+root@sr-VirtualBox:/home/sr/compose# ls
+compose.yaml
+root@sr-VirtualBox:/home/sr/compose# docker swarm init
+Swarm initialized: current node (kd6bav8zvfkb1eypeucukko2a) is now a manager.
+
+To add a worker to this swarm, run the following command:
+
+    docker swarm join --token SWMTKN-1-4xdwex88nogappy6lis7686wwdxqfqlzxhxm24wlud4q7dbnji-6ri3dm4dkkrfv11iory31yb6l 10.0.2.15:2377
+
+To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
+
+root@sr-VirtualBox:/home/sr/compose# docker ps -a
+CONTAINER ID   IMAGE             COMMAND                  CREATED       STATUS                   PORTS     NAMES
+ddbf60fa26dc   ubuntu:22.10      "/bin/bash"              10 days ago   Exited (0) 10 days ago             gb-test
+c5e85a4a13fd   docker/whalesay   "cowsay -f kitty 'He…"   10 days ago   Exited (0) 10 days ago             zen_curran
+79c004a72c17   docker/whalesay   "cowsay -f owl 'Hell…"   10 days ago   Exited (2) 10 days ago             elated_keldysh
+a97710962f72   docker/whalesay   "cowsay -f panda 'He…"   10 days ago   Exited (2) 10 days ago             awesome_goldstine
+0047259e3231   docker/whalesay   "cowsay -f duck 'Hel…"   10 days ago   Exited (2) 10 days ago             confident_babbage
+dc0e0b686e82   docker/whalesay   "cowsay -f kangaroo …"   10 days ago   Exited (2) 10 days ago             ecstatic_varahamihira
+53fd5f411ed8   docker/whalesay   "cowsay -f dragon 'H…"   10 days ago   Exited (0) 10 days ago             funny_matsumoto
+66f73e3a724b   docker/whalesay   "cowsay -f elephant …"   10 days ago   Exited (0) 10 days ago             hungry_keller
+c58b1f546676   docker/whalesay   "cowsay -f elephant …"   10 days ago   Exited (0) 10 days ago             competent_mcnulty
+98e3779d8952   docker/whalesay   "cowsay Hello, Docke…"   10 days ago   Exited (0) 10 days ago             trusting_antonelli
+c5144b1f8fb9   ubuntu            "date"                   2 weeks ago   Exited (0) 2 weeks ago             charming_faraday
+cea8053b1058   ubuntu            "date"                   2 weeks ago   Exited (0) 2 weeks ago             adoring_napier
+d82c86deea4f   hello-world       "/hello"                 3 weeks ago   Exited (0) 3 weeks ago             stoic_kepler
+bfe3fdddd123   hello-world       "/hello"                 3 weeks ago   Exited (0) 3 weeks ago             serene_bassi
+root@sr-VirtualBox:/home/sr/compose# docker service ls
+ID        NAME      MODE      REPLICAS   IMAGE     PORTS
+root@sr-VirtualBox:/home/sr/compose# docker service create -p 80:80 nginx
+424kfbpivepo3tm3z6kfmgyua
+overall progress: 0 out of 1 tasks
+overall progress: 0 out of 1 tasks
+overall progress: 1 out of 1 tasks
+1/1: running   [==================================================>]
+verify: Service converged
+root@sr-VirtualBox:/home/sr/compose#
+root@sr-VirtualBox:/home/sr/compose#
+root@sr-VirtualBox:/home/sr/compose# ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+2: enp0s3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 08:00:27:91:48:e0 brd ff:ff:ff:ff:ff:ff
+    inet 10.0.2.15/24 brd 10.0.2.255 scope global dynamic noprefixroute enp0s3
+       valid_lft 84467sec preferred_lft 84467sec
+    inet6 fe80::432a:edb1:83e6:589e/64 scope link noprefixroute
+       valid_lft forever preferred_lft forever
+3: lxcbr0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default qlen 1000
+    link/ether 00:16:3e:00:00:00 brd ff:ff:ff:ff:ff:ff
+    inet 10.0.3.1/24 brd 10.0.3.255 scope global lxcbr0
+       valid_lft forever preferred_lft forever
+4: docker0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default
+    link/ether 02:42:a3:69:52:0f brd ff:ff:ff:ff:ff:ff
+    inet 172.17.0.1/16 brd 172.17.255.255 scope global docker0
+       valid_lft forever preferred_lft forever
+5: lxdbr0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default qlen 1000
+    link/ether 00:16:3e:0a:c0:af brd ff:ff:ff:ff:ff:ff
+    inet 10.189.145.1/24 scope global lxdbr0
+       valid_lft forever preferred_lft forever
+    inet6 fd42:8c3b:cef8:c638::1/64 scope global
+       valid_lft forever preferred_lft forever
+6: lxdfan0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1450 qdisc noqueue state UP group default qlen 1000
+    link/ether 00:16:3e:8a:31:89 brd ff:ff:ff:ff:ff:ff
+    inet 240.15.0.1/8 scope global lxdfan0
+       valid_lft forever preferred_lft forever
+9: lxdfan0-mtu: <BROADCAST,NOARP,UP,LOWER_UP> mtu 1450 qdisc noqueue master lxdfan0 state UNKNOWN group default qlen 1000
+    link/ether b2:a5:b2:92:71:92 brd ff:ff:ff:ff:ff:ff
+    inet6 fe80::b0a5:b2ff:fe92:7192/64 scope link
+       valid_lft forever preferred_lft forever
+10: lxdfan0-fan: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1450 qdisc noqueue master lxdfan0 state UNKNOWN group default qlen 1000
+    link/ether b6:39:98:aa:b7:3c brd ff:ff:ff:ff:ff:ff
+    inet6 fe80::b439:98ff:feaa:b73c/64 scope link
+       valid_lft forever preferred_lft forever
+14: docker_gwbridge: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default
+    link/ether 02:42:52:0c:2f:2b brd ff:ff:ff:ff:ff:ff
+    inet 172.18.0.1/16 brd 172.18.255.255 scope global docker_gwbridge
+       valid_lft forever preferred_lft forever
+    inet6 fe80::42:52ff:fe0c:2f2b/64 scope link
+       valid_lft forever preferred_lft forever
+16: veth13b8c7b@if15: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master docker_gwbridge state UP group default
+    link/ether ce:28:f2:72:c3:22 brd ff:ff:ff:ff:ff:ff link-netnsid 1
+    inet6 fe80::cc28:f2ff:fe72:c322/64 scope link
+       valid_lft forever preferred_lft forever
+20: veth6435e54@if19: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master docker_gwbridge state UP group default
+    link/ether a6:bc:bd:98:53:5c brd ff:ff:ff:ff:ff:ff link-netnsid 2
+    inet6 fe80::a4bc:bdff:fe98:535c/64 scope link
+       valid_lft forever preferred_lft forever
+root@sr-VirtualBox:/home/sr/compose#
